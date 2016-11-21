@@ -1,0 +1,19 @@
+<html>
+<head>
+	<script src="js/higher_order_functions.js"></script>
+	<script>
+		var list = [1, 2, 3, 4, 5];
+		
+		var fp = new FP();
+		
+		var resultAdd = fp.reduce(fp.add, 0, list);
+		var resultMinus = fp.reduce(fp.minus, 0, list);
+		var resultMultiply = fp.reduce(fp.multyply, 1, list);
+		
+		console.log("add=" + resultAdd + ", minus=" + resultMinus + ", multiply=" + resultMultiply);
+		
+	</script>
+</head>
+<body>
+</body>
+</html>
