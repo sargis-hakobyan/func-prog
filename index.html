@@ -1,16 +1,16 @@
 <html>
 <head>
 	<script src="js/higher_order_functions.js"></script>
-	<script>
-		var list = [1, 2, 3, 4, 5];
-		
+	<script>		
 		var fp = new FP();
 		
-		var resultAdd = fp.reduce(fp.add, 0, list);
-		var resultMinus = fp.reduce(fp.minus, 0, list);
-		var resultMultiply = fp.reduce(fp.multyply, 1, list);
+		var resultAdd = fp.foldl(fp.add, 0, [1, 2, 3, 4, 5]);
+		var resultMinus = fp.foldl(fp.minus, 0, [1, 2, 3, 4, 5]);
+		var resultMultiply = fp.foldl(fp.multyply, 1, [1, 2, 3, 4, 5]);
+		var resultSize = fp.foldr(fp.size, 0, [1, 2, 3, 4, 5]);
+		var appendLists = fp.append(["1","2"], ["3","4"]);
 		
-		console.log("add=" + resultAdd + ", minus=" + resultMinus + ", multiply=" + resultMultiply);
+		console.log("add=" + resultAdd + ", minus=" + resultMinus + ", multiply=" + resultMultiply + ", size = " + resultSize + ", append = " + appendLists);
 		
 	</script>
 </head>
