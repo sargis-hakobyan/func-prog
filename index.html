@@ -4,13 +4,13 @@
 	<script>		
 		var fp = new FP();
 		
-		var resultAdd = fp.foldl(fp.add, 0, [1, 2, 3, 4, 5]);
-		var resultMinus = fp.foldl(fp.minus, 0, [1, 2, 3, 4, 5]);
-		var resultMultiply = fp.foldl(fp.multyply, 1, [1, 2, 3, 4, 5]);
-		var resultSize = fp.foldr(fp.size, 0, [1, 2, 3, 4, 5]);
-		var appendLists = fp.append(["1","2"], ["3","4"]);
-		
-		console.log("add=" + resultAdd + ", minus=" + resultMinus + ", multiply=" + resultMultiply + ", size = " + resultSize + ", append = " + appendLists);
+		console.log("add = " + fp.foldl(fp.add, 0, [1, 2, 3, 4, 5]));
+		console.log("minus = " + fp.foldl(fp.minus, 0, [1, 2, 3, 4, 5]));
+		console.log("multiply = " + fp.foldl(fp.multyply, 1, [1, 2, 3, 4, 5]));
+		console.log("size = " + fp.foldr(fp.size, 0, [1, 2, 3, 4, 5]));
+		console.log("append = " + fp.append(["1","2"], ["3","4"]));
+		console.log("elements with odd index = " + fp.getOddElements([1,2,3,4,5]));
+		console.log("elements with even index = " + fp.getEvenElements([1,2,3,4,5]));
 		
 	</script>
 </head>

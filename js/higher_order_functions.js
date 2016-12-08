@@ -1,37 +1,81 @@
-function FP(){
-	this.foldl = function(f, z, list) {
-		if(!list || list.length == 0)
+function FP() {
+
+	this.foldl = function (f, z, list) {
+		if (!list || list.length == 0)
 			return z;
 
 		return this.foldl(f, f(z, list[0]), list.slice(1));
 	};
-	
-	this.foldr = function(f, z, list) {		   
-		if(!list || list.length == 0)
+
+	this.foldr = function (f, z, list) {
+		if (!list || list.length == 0)
 			return z;
-		
+
 		return f(list[0], this.foldr(f, z, list.slice(1)));
-    };
-	
-	this.append = function(a, b) {
-		return fp.foldr(fp.cons, b, a)
 	};
-    this.cons = function(x, list) {
-		list.unshift(x);
-		return list;
+
+	/** 
+	 * Appends two lists
+	 * a = [1,2,3], b = [a,b,c] -> result = [1,2,3,a,b,c] 
+	 * uses foldr(fold right) and cons functions
+	*/
+	this.append = function (a, b) {
+
+		/** Adds element to the list from left */
+		var cons = function (x, list) {
+			list.unshift(x);
+			return list;
+		};
+		return fp.foldr(cons, b, a)
 	};
-	this.size = function(x, y) {
+
+	/** Returns elements that have even index */
+	this.getOddElements = function (list) {
+
+		/** Returns accumuliator which contains filtered list and boolean variable */
+		var getOdd = function (accum, x) {
+			if (accum.b) {
+				accum.list.push(x);
+				return { b: !accum.b, list: accum.list };
+			}
+			return { b: !accum.b, list: accum.list };
+		};
+		var result = fp.foldl(getOdd, { b: false, list: [] }, list);
+		return result.list;
+	}
+
+	/** Returns elements that have odd index */
+	this.getEvenElements = function (list) {
+
+		/** Returns accumuliator which contains filtered list and boolean variable */
+		var getEven = function (x, accum) {
+			if (!accum.b) {
+				accum.list.unshift(x);
+				return { b: !accum.b, list: accum.list };
+			}
+			return { b: !accum.b, list: accum.list };
+		}
+		var result = fp.foldr(getEven, { b: false, list: [] }, list);
+		return result.list;
+	}
+
+	/** Counts list size */
+	this.size = function (x, y) {
 		return 1 + y;
 	};
-	
-	this.add = function(x, y) {
+
+	/** Returns sum of all elements of the list */
+	this.add = function (x, y) {
 		return x + y;
 	};
-	this.minus = function(x, y) {
+
+	/** Returns deducttion of all elements of the list */
+	this.minus = function (x, y) {
 		return x - y;
 	};
-	this.multyply = function(x, y) {
+
+	/** Multypllies all element of the list */
+	this.multyply = function (x, y) {
 		return x * y;
 	};
 }
-		 
