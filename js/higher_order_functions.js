@@ -36,26 +36,10 @@ function FP() {
 		var getOdd = function (accum, x) {
 			if (accum.b) {
 				accum.list.push(x);
-				return { b: !accum.b, list: accum.list };
 			}
 			return { b: !accum.b, list: accum.list };
 		};
 		var result = fp.foldl(getOdd, { b: false, list: [] }, list);
-		return result.list;
-	}
-
-	/** Returns elements that have odd index */
-	this.getEvenElements = function (list) {
-
-		/** Returns accumuliator which contains filtered list and boolean variable */
-		var getEven = function (x, accum) {
-			if (!accum.b) {
-				accum.list.unshift(x);
-				return { b: !accum.b, list: accum.list };
-			}
-			return { b: !accum.b, list: accum.list };
-		}
-		var result = fp.foldr(getEven, { b: false, list: [] }, list);
 		return result.list;
 	}
 
