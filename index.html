@@ -3,13 +3,22 @@
 	<script src="js/higher_order_functions.js"></script>
 	<script>		
 		var fp = new FP();
-		
-		console.log("add = " + fp.foldl(fp.add, 0, [1, 2, 3, 4, 5]));
-		console.log("minus = " + fp.foldl(fp.minus, 0, [1, 2, 3, 4, 5]));
-		console.log("multiply = " + fp.foldl(fp.multyply, 1, [1, 2, 3, 4, 5]));
-		console.log("size = " + fp.foldr(fp.size, 0, [1, 2, 3, 4, 5]));
+		console.log("Reduce examples using fold left and fold right");
+		console.log("sum = " + fp.foldl((a, b)=> a + b, 0, [1, 2, 3, 4, 5]));
+		console.log("deduction = " + fp.foldl((a, b) => a - b, 0, [1, 2, 3, 4, 5]));
+		console.log("multiply = " + fp.foldl((a, b) => a * b, 1, [1, 2, 3, 4, 5]));
+		console.log("size = " + fp.foldr((a, b) => 1 + b, 0, [1, 2, 3, 4, 5]));
+
+		console.log("Map examples-----------");
+		console.log("map-> (+1)= " + fp.map((a) => a + 1, [1, 2, 3, 4, 5, 6]));	
+		console.log("map-> (*5) = " + fp.map((a) => a * 5, [1, 2, 3, 4, 5, 6]));
+		console.log("elements with odd index = " + fp.getOddElements([1, 2, 3, 4, 5, 6]));
 		console.log("append = " + fp.append(["0","1","2"], ["3","4","5"]));
-		console.log("elements with odd index = " + fp.getOddElements([1,2,3,4,5,6]));		
+
+		console.log("ES6 examples-----------" );		
+		console.log("sum = " + [1, 2, 3, 4, 5].reduce((a, b) => a + b, 0));
+		console.log("map-> (+1)=" + [1, 2, 3, 4, 5].map((a) => a + 1));
+
 	</script>
 </head>
 <body>

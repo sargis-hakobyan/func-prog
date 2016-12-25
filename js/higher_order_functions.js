@@ -43,6 +43,25 @@ function FP() {
 		return result.list;
 	}
 
+	/** Processes given f function for each element of list */
+	this.map = function(f, list) {
+		var cons = function(list, x) {
+			list.push(f(x));
+			return list;
+		}		
+		return fp.foldl(cons, [], list);;
+	};
+
+	/** Does (+1) for each element of list */
+	this.plusOne = function(x) {
+		return x + 1;
+	};
+
+	/**  Multypllies each element of list by 5 */
+	this.multyplyBy5 = function(x) {
+		return x * 5;
+	};
+
 	/** Counts list size */
 	this.size = function (x, y) {
 		return 1 + y;
