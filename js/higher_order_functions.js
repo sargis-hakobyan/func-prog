@@ -50,35 +50,5 @@ function FP() {
 			return list;
 		}		
 		return fp.foldl(cons, [], list);;
-	};
-
-	/** Does (+1) for each element of list */
-	this.plusOne = function(x) {
-		return x + 1;
-	};
-
-	/**  Multypllies each element of list by 5 */
-	this.multyplyBy5 = function(x) {
-		return x * 5;
-	};
-
-	/** Counts list size */
-	this.size = function (x, y) {
-		return 1 + y;
-	};
-
-	/** Returns sum of all elements of the list */
-	this.add = function (x, y) {
-		return x + y;
-	};
-
-	/** Returns deducttion of all elements of the list */
-	this.minus = function (x, y) {
-		return x - y;
-	};
-
-	/** Multypllies all element of the list */
-	this.multyply = function (x, y) {
-		return x * y;
-	};
+	};	
 }
